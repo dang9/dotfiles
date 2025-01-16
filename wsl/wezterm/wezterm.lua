@@ -25,6 +25,9 @@ end
 
 -- Color scheme, Wezterm has 100s of them you can see here:
 -- https://wezfurlong.org/wezterm/colorschemes/index.html
+
+config.adjust_window_size_when_changing_font_size = false
+config.automatically_reload_config = true
 config.color_scheme = 'Oceanic Next (Gogh)'
 -- This is my chosen font, we will get into installing fonts on windows later
 config.font = wezterm.font('Hack Nerd Font')
@@ -56,6 +59,9 @@ config.window_padding = {
 
 -- There are mouse binding to mimc Windows Terminal and let you copy
 -- To copy just highlight something and right click. Simple
+
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
+
 mouse_bindings = {
   {
     event = { Down = { streak = 3, button = 'Left' } },
