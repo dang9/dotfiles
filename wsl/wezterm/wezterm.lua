@@ -37,11 +37,6 @@ config.font_size = 11
 config.launch_menu = launch_menu
 -- makes my cursor blink 
 config.default_cursor_style = 'BlinkingBar'
-config.disable_default_key_bindings = true
--- this adds the ability to use ctrl+v to paste the system clipboard 
-config.keys = {{ key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },}
-config.mouse_bindings = mouse_bindings
-
 config.font_size = 12.0
 config.hide_tab_bar_if_only_one_tab = true
 config.scroll_to_bottom_on_input = false
@@ -86,6 +81,12 @@ config.colors = {
 
 -- There are mouse binding to mimc Windows Terminal and let you copy
 -- To copy just highlight something and right click. Simple
+
+-- config.disable_default_key_bindings = true
+-- this adds the ability to use ctrl+v to paste the system clipboard 
+config.keys = {{ key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },}
+config.mouse_bindings = mouse_bindings
+
 
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
 
