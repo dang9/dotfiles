@@ -12,6 +12,16 @@ tools:
 - zsh
 - ohmyzsh
 - zoxide
+- fzf
+- thefuck
+- ripgrep
+
+zsh plugins:
+- zsh-autosuggestions
+- zsh-syntax-highlighting
+- zsh-completions
+
+
 ```
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 ```
