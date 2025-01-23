@@ -32,7 +32,7 @@ config.color_scheme = 'Oceanic Next (Gogh)'
 config.enable_scroll_bar = false
 config.enable_wayland = true
 -- This is my chosen font, we will get into installing fonts on windows later
-config.font = wezterm.font('Hack Nerd Font')
+-- config.font = wezterm.font('Hack Nerd Font')
 config.font_size = 11
 config.launch_menu = launch_menu
 -- makes my cursor blink 
@@ -62,7 +62,11 @@ config.foreground_text_hsb = {
 }
 
 -- IMPORTANT: Sets WSL2 UBUNTU-24.04 as the defualt when opening Wezterm
-config.default_domain = 'WSL:Ubuntu-24.04'
+if os.getenv('USERNAME') == 'dang' then
+  config.default_domain = 'WSL:Ubuntu-24.04'
+else
+  config.default_domain = 'WSL:Ubuntu-22.04'
+end
 
 -- Tab bar
 config.enable_tab_bar = true
