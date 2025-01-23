@@ -4,6 +4,7 @@
 local wezterm = require 'wezterm'
 local mux = wezterm.mux
 local act = wezterm.action
+local username = os.getenv("USER") or os.getenv("USERNAME")
 
 local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
 
@@ -62,7 +63,7 @@ config.foreground_text_hsb = {
 }
 
 -- IMPORTANT: Sets WSL2 UBUNTU-24.04 as the defualt when opening Wezterm
-if os.getenv('USERNAME') == 'dang' then
+if username == 'dang' then
   config.default_domain = 'WSL:Ubuntu-24.04'
 else
   config.default_domain = 'WSL:Ubuntu-22.04'
