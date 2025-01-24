@@ -2,9 +2,14 @@
 -- Mux is the mutliplexes for windows etc inside of the terminal
 -- Action is to perform actions on the terminal
 local wezterm = require 'wezterm'
+
+-- see https://wezfurlong.org/wezterm/config/lua/wezterm/target_triple.html for values
+local is_linux = wezterm.target_triple == "x86_64-unknown-linux-gnu"
+local is_windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
+
 local mux = wezterm.mux
 local act = wezterm.action
-local username = os.getenv("USER") or os.getenv("USERNAME")
+local username = os.getenv("USERNAME") or "default"
 
 local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
 
@@ -15,9 +20,19 @@ local keys = {}
 local mouse_bindings = {}
 local launch_menu = {}
 
+
+
 -- This is for newer wezterm vertions to use the config builder 
 if wezterm.config_builder then
   config = wezterm.config_builder()
+end
+
+-- config.log_level = "DEBUG"
+
+if username == 'adang' then
+    config.default_domain = 'WSL:Ubuntu-22.04'
+else
+    config.default_domain = 'WSL:Ubuntu-24.04'
 end
 
 -- Default config settings
@@ -62,12 +77,6 @@ config.foreground_text_hsb = {
   brightness = 1.5,
 }
 
--- IMPORTANT: Sets WSL2 UBUNTU-24.04 as the defualt when opening Wezterm
-if username == 'dang' then
-  config.default_domain = 'WSL:Ubuntu-24.04'
-else
-  config.default_domain = 'WSL:Ubuntu-22.04'
-end
 
 -- Tab bar
 config.enable_tab_bar = true
@@ -89,12 +98,11 @@ config.colors = {
 
 -- config.disable_default_key_bindings = true
 -- this adds the ability to use ctrl+v to paste the system clipboard 
-config.keys = {{ key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },}
-config.mouse_bindings = mouse_bindings
-
 
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
 
+
+config.mouse_bindings = mouse_bindings
 mouse_bindings = {
   {
     event = { Down = { streak = 3, button = 'Left' } },
@@ -119,13 +127,18 @@ mouse_bindings = {
 
 -- Custom key bindings
 config.keys = {
+    {
+        key = 'r',
+        mods = 'LEADER|SHIFT',
+        action = wezterm.action.ReloadConfiguration,
+    },
   -- -- Disable Alt-Enter combination (already used in tmux to split pane)
   -- {
   --     key = 'Enter',
   --     mods = 'ALT',
   --     action = act.DisableDefaultAssignment,
   -- },
-
+  { key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },
   -- Copy mode
   {
       key = '[',
