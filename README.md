@@ -5,6 +5,10 @@ e.g.
 ```mklink /D C:\Users\antho\.config\wezterm \\wsl.localhost\Ubuntu-24.04\home\dang\repos\dotfiles\wsl\wezterm```
 ```mklink /D C:\Users\antho\.glzr\glazewm \\wsl.localhost\Ubuntu-24.04\home\dang\repos\dotfiles\wsl\glazewm```
 
+- Linux/Ubuntu
+```ln -s ~/repos/dotfiles/wsl/zsh/.zshrc ~/.zshrc```
+
+
 
 tools:
 
