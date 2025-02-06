@@ -20,6 +20,7 @@ tools:
 - fzf
 - thefuck
 - ripgrep
+- (dotenv-linter)[https://github.com/dotenv-linter/dotenv-linter]
 
 zsh plugins:
 - zsh-autosuggestions

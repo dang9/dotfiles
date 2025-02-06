@@ -154,6 +154,7 @@ source $HOME/.nix-profile/etc/profile.d/nix.sh
 
 eval "$(direnv hook zsh)"
 
+PS1='${VIRTUAL_ENV_PROMPT:+($VIRTUAL_ENV_PROMPT)}[\w]\n\$ '
 
 # reload envs
 alias de='export ENV_FILE=.env && direnv allow . && direnv reload'
