@@ -128,6 +128,7 @@ alias pm='python main.py'
 alias l='make lint'
 alias gqs='git-quick-stats'
 alias gloo='git log --oneline --decorate origin/main..'
+alias grsl='git reset --soft HEAD~$(gloo | wc -l)'
 
 
 if [ -n $VIRTUAL_ENV ]; then
@@ -155,7 +156,7 @@ eval "$(direnv hook zsh)"
 
 
 # reload envs
-alias de='direnv allow . && direnv reload'
+alias de='export ENV_FILE=.env && direnv allow . && direnv reload'
 alias delocal='export ENV_FILE=.env.local && direnv allow . && direnv reload'
 alias dedev='export ENV_FILE=.env.dev && direnv allow . && direnv reload'
 alias deuat='export ENV_FILE=.env.uat && direnv allow . && direnv reload'
