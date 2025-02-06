@@ -107,9 +107,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-plugins=( 
-    zsh-autosuggestions
-)
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -156,3 +153,10 @@ source $HOME/.nix-profile/etc/profile.d/nix.sh
 
 eval "$(direnv hook zsh)"
 
+
+# reload envs
+alias de='direnv allow . && direnv reload'
+alias delocal='export ENV_FILE=.env.local && direnv allow . && direnv reload'
+alias dedev='export ENV_FILE=.env.dev && direnv allow . && direnv reload'
+alias deuat='export ENV_FILE=.env.uat && direnv allow . && direnv reload'
+alias deprod='export ENV_FILE=.env.prod && direnv allow . && direnv reload'
