@@ -127,11 +127,15 @@ alias h='helm'
 alias pm='python main.py'
 alias l='make lint'
 alias gqs='git-quick-stats'
+
+# series of git aliases for easy squashing commits
 alias gloo='git log --oneline --decorate origin/main..'
+# git reset soft to HEAD~n based on number of commits since main
 alias grsl='git reset --soft HEAD~$(gloo | wc -l)'
-alias gs='LCM=$(gloo | grep "HEAD" | awk -F") " "{print \$2}") && grsl && gcam "$LCM"'
+# git squash and commit with latest commit msg
+alias gs='LCM=$(gloo | grep "HEAD" | awk -F") " "{print \$2}") && grsl && git commit -a -m "$LCM"'
 # git squash and force push with lease
-alias gsf='gs && ggfl'
+alias gsf='gs && git push --force-with-lease origin $(current_branch)'
 
 if [ -n $VIRTUAL_ENV ]; then
  echo "reactivating virtualenv"
