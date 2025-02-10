@@ -130,7 +130,8 @@ alias gqs='git-quick-stats'
 alias gloo='git log --oneline --decorate origin/main..'
 alias grsl='git reset --soft HEAD~$(gloo | wc -l)'
 alias gs='LCM=$(gloo | grep "HEAD" | awk -F") " "{print \$2}") && grsl && gcam "$LCM"'
-
+# git squash and force push with lease
+alias gsf='gs && ggfl'
 
 if [ -n $VIRTUAL_ENV ]; then
  echo "reactivating virtualenv"
