@@ -136,6 +136,8 @@ alias grsl='git reset --soft HEAD~$(gloo | wc -l)'
 alias gs='LCM=$(gloo | grep "HEAD" | awk -F") " "{print \$2}") && grsl && git commit -a -m "$LCM"'
 # git squash and force push with lease
 alias gsf='gs && git push --force-with-lease origin $(current_branch)'
+# git switch to backup branch and push to origin and switch back
+alias gswcb='git switch -c $(current_branch)-backup && git push --set-upstream origin $(current_branch) --force-with-lease --force-if-includes && git switch -'
 
 if [ -n $VIRTUAL_ENV ]; then
  echo "reactivating virtualenv"
