@@ -139,6 +139,8 @@ alias gsf='gs && git push --force-with-lease origin $(current_branch)'
 # git switch to backup branch and push to origin and switch back
 alias gswcb='git switch -c $(current_branch)-backup && git push --set-upstream origin $(current_branch) --force-with-lease --force-if-includes && git switch -'
 
+alias gcaml='LCM=$(gloo | grep "HEAD" | awk -F") " "{print \$2}") && git commit -a -m "$LCM"'
+
 if [ -n $VIRTUAL_ENV ]; then
  echo "reactivating virtualenv"
  source "$VIRTUAL_ENV/bin/activate"
