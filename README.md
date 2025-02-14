@@ -2,6 +2,7 @@
 
 ## Create a symbolic link
 e.g.
+- Windows
 ```mklink /D C:\Users\antho\.config\wezterm \\wsl.localhost\Ubuntu-24.04\home\dang\repos\dotfiles\wsl\wezterm```
 ```mklink /D C:\Users\antho\.glzr\glazewm \\wsl.localhost\Ubuntu-24.04\home\dang\repos\dotfiles\wsl\glazewm```
 

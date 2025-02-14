@@ -116,49 +116,49 @@ workspaces:
 
     # Optionally force the workspace on a specific monitor if it exists.
     # 0 is your leftmost screen, 1 is the next one to the right, and so on.
-    bind_to_monitor: 1
+    bind_to_monitor: 2
 
     # Optionally prevent workspace from being deactivated when empty.
     keep_alive: True
 
   - name: "2"
-    display_name: "Secondary 2"
+    display_name: "Laptop 2"
     bind_to_monitor: 0
     keep_alive: True
 
   - name: "3"
-    display_name: "Terminal and Chat 3"
-    bind_to_monitor: 0
+    display_name: "Portrait 3"
+    bind_to_monitor: 3
     keep_alive: True
 
   - name: "4"
-    display_name: "Misc on Laptop 4"
-    bind_to_monitor: 2
+    display_name: "Laptop 4"
+    bind_to_monitor: 0
     keep_alive: True
 
   - name: "5"
     display_name: "Main 5"
-    bind_to_monitor: 1
+    bind_to_monitor: 2
     keep_alive: True
 
   - name: "6"
-    display_name: "Secondary 6"
-    bind_to_monitor: 0
-    keep_alive: True
-
-  - name: "7"
-    display_name: "Secondary 7"
-    bind_to_monitor: 0
-    keep_alive: True
-
-  - name: "8"
-    display_name: "Secondary 8"
+    display_name: "Upper 6"
     bind_to_monitor: 1
     keep_alive: True
 
+  - name: "7"
+    display_name: "Upper 7"
+    bind_to_monitor: 1
+    keep_alive: True
+
+  - name: "8"
+    display_name: "Laptop 8"
+    bind_to_monitor: 0
+    keep_alive: True
+
   - name: "9"
-    display_name: "Secondary 9"
-    bind_to_monitor: 2
+    display_name: "Portrait 9"
+    bind_to_monitor: 1
     keep_alive: True
 
 window_rules:
